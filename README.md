@@ -29,7 +29,9 @@ Hercules est une application propulsée par le système de connaissances context
 
 # Déploiement
 
-Les étapes de déploiement sont les mêmes que la plateforme Researchspace. Elles se trouvent au lien suivant : 
+Afin d'exécuter la version Beta (0.1.0) de la plateforme Hercules, exécutez la commande `docker-compose up` à partir du dossier [docker-compose/hercules](/docker-compose/hercules/).
+
+Pour plus d'informations, référez-vous à ResearchSpace au lien suivant :
 
 [Researchspace Setup](SETUP.md)
 
