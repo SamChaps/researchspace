@@ -3,7 +3,7 @@
       ?? <http://hercules.gouv.qc.ca/ontology/meta/forClass> ?class .
       ?? <http://hercules.gouv.qc.ca/ontology/meta/hasName> ?formName .
       ?class rdfs:label ?label .
-      FILTER langMatches(lang(?label), "FR")
+      FILTER langMatches(lang(?label), "[[urlParam "preferredLanguage"]]")
       BIND(STRUUID() as ?uuid)
     }
     ' template='{{> classTemplate}}'>

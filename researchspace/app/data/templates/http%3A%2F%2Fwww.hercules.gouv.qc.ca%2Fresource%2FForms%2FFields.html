@@ -11,7 +11,7 @@
   <template id='fieldsTemplate'>
     <div>
       {{#each bindings}}
-      [[> :assetpageHeader title="Définition des champs d'entrée du formulaire" icon="fa-bars"]]
+      [[> :assetpageHeader title=(i18n "fieldsDefinitionForm" locale=(urlParam "preferredLanguage")) icon="fa-bars"]]  
       <bs-row class="row-center">
         <bs-col xs=11 sm=10 md=10 lg=8>
           <semantic-form subject='{{form.value}}' post-action='redirect' browser-persistence=false form-id='FieldsForm'
@@ -56,8 +56,8 @@
           },
           {
             "id": "input",
-            "label": "Champ d&#39;entrée du formulaire",
-            "description": "Le champ d&#39;entrée à ajouter au formulaire",
+            "label": "[[i18n "formInputField" locale=(urlParam "preferredLanguage")]]",
+            "description": "[[i18n "formInputFieldDescription" locale=(urlParam "preferredLanguage")]]",
             "xsdDatatype": "xsd:anyURI",
             "minOccurs": "1",
             "selectPattern": "SELECT $value WHERE { $subject <http://hercules.gouv.qc.ca/ontology/meta/hasInput> $value }",
@@ -66,15 +66,15 @@
           }
           ]'>
             <bs-panel>
-              <semantic-form-hidden-input for='type' default-value='http://hercules.gouv.qc.ca/ontology/meta/Form'>
+              <semantic-form-hidden-input for='type' default-value='http://hercules.gouv.qc.ca/ontology/meta/Form' placeholder='[[i18n "typePlaceholder" locale=(urlParam "preferredLanguage")]]'>
               </semantic-form-hidden-input>
-              <semantic-form-hidden-input for='class' default-value='{{class.value}}'></semantic-form-hidden-input>
-              <semantic-form-hidden-input for='name' default-value='{{name.value}}'></semantic-form-hidden-input>
+              <semantic-form-hidden-input for='class' default-value='{{class.value}}' placeholder='[[i18n "classPlaceholder" locale=(urlParam "preferredLanguage")]]'></semantic-form-hidden-input>
+              <semantic-form-hidden-input for='name' default-value='{{name.value}}' placeholder='[[i18n "namePlaceholder" locale=(urlParam "preferredLanguage")]]'></semantic-form-hidden-input>
 
               {{> Forms:InputSwitch field='input'}}
 
-              <button name='submit' class='btn btn-default pull-right'>Créer</button>
-              <button name='reset' class='btn btn-default pull-right'>Réinitialiser</button>
+              <button name='submit' class='btn btn-default pull-right'>[[i18n "create" locale=(urlParam "preferredLanguage")]]</button>
+              <button name='reset' class='btn btn-default pull-right'>[[i18n "reset" locale=(urlParam "preferredLanguage")]]</button>
             </bs-panel>
           </semantic-form>
         </bs-col>

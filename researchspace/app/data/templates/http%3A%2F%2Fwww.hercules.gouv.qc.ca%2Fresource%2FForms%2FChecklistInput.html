@@ -9,8 +9,8 @@
     },
     {
       "id": "field",
-      "label": "Modèle de connaissances",
-      "description": "Le modèle de connaissances liant l&#39;entrée à l&#39;entité créée par le formulaire",
+      "label": "[[i18n "knowledgePattern" locale=(urlParam "preferredLanguage")]]",
+      "description": "[[i18n "knowledgePatternDescription" locale=(urlParam "preferredLanguage")]]",
       "xsdDatatype": "xsd:anyURI",
       "minOccurs": "1",
       "maxOccurs": "1",
@@ -37,8 +37,8 @@
     },
     {
       "id": "checklist-type",
-      "label": "Type de contrôle",
-      "description": "Le type de contrôle utilisé pour les entrées de la liste de contrôle à ajouter au formulaire",
+      "label": "[[i18n "checklistType" locale=(urlParam "preferredLanguage")]]",
+      "description": "[[i18n "checklistTypeDescription" locale=(urlParam "preferredLanguage")]]",
       "xsdDatatype": "xsd:string",
       "minOccurs": "1",
       "maxOccurs": "1",
@@ -57,8 +57,8 @@
     },
     {
       "id": "checklist-row",
-      "label": "Orientation",
-      "description": "L&#39;orientation de la liste de contrôle à ajouter au formulaire",
+      "label": "[[i18n "checklistRow" locale=(urlParam "preferredLanguage")]]",
+      "description": "[[i18n "checklistRowDescription" locale=(urlParam "preferredLanguage")]]",
       "xsdDatatype": "xsd:string",
       "minOccurs": "1",
       "maxOccurs": "1",
@@ -78,7 +78,7 @@
   <semantic-form-hidden-input for='switch-case-type'
     default-value='http://hercules.gouv.qc.ca/ontology/meta/ChecklistInput'>
   </semantic-form-hidden-input>
-  <semantic-form-select-input for='field' placeholder='Modèle de connaissances'></semantic-form-select-input>
+  <semantic-form-select-input for='field' placeholder='[[i18n "knowledgePatterns" locale=(urlParam "preferredLanguage")]]'></semantic-form-select-input>
   <semantic-form-select-input for='checklist-type' placeholder='Type'></semantic-form-select-input>
   <semantic-form-select-input for='checklist-row' placeholder='Orientation'></semantic-form-select-input>
 </semantic-form-composite-input>
