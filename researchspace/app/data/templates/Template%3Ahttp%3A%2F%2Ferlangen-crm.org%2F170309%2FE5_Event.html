@@ -1,0 +1,155 @@
+<ol class="page-breadcrumb">
+        <li>
+          <mp-link title="Home" url="/">Home</mp-link>
+        </li>
+        <li class="active">
+          <mp-label iri='[[this]]'></mp-label>
+        </li>
+      </ol>
+      
+      <style>
+        #tabs .tab-ontodia {
+          margin: 0px;
+          padding: 2px 0px 0px;
+          width: 100%;
+          height: calc(100vh - 300px);
+        }
+      
+        .tab1 {
+          padding: 2px 0px 0px;
+          width: 50vw;
+          display: inline-block;
+        }
+      
+        .tablee {
+          font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-weight: 300;
+          display: inline-block;
+        }
+      
+        .images {
+          margin-left: 100px;
+          width: 50%;
+          display: inline-block;
+          vertical-align: top;
+          margin-top: 13px;
+        }
+      
+        .title {
+          background-color: rgb(206, 206, 206);
+          display: flex;
+        }
+      
+      </style>
+      
+      <div class="page">
+          [[#if (ask "ASK { {SELECT * WHERE {?? ?p ?o}LIMIT 1}UNION {SELECT * WHERE {?s ?? ?o}LIMIT 1}UNION {SELECT * WHERE {?s ?p ??}LIMIT 1}UNION{ {SELECT * WHERE {?a ?p ?o. FILTER(??=<Template:http://www.w3.org/2000/01/rdf-schema#Resource> )} LIMIT 1} } }")]]
+          <div class='page__header-navtabs'>
+            [[> Platform:DefaultResourceHeader]]
+          </div>
+          <bs-tabs id="tabs" class='page__body-navtabs' unmount-on-exit=true>
+            <bs-tab event-key="0" class="tab1" title="Sommaire">
+              <div class="tablee">
+                  <div class="panel-body"><div class="rs-page__summary-content table-responsive"><table class="table"><thead role="header"><tr><th class="rs-page__field-label-holder">Field</th><th>Value</th><th class="rs-page__count--title"><div class="icon--annotation fa fa-pencil"></div><!-- react-text: 622 -->Annotations<!-- /react-text --></th><th class="rs-page__count--title"><span class="icon--assertion"></span><!-- react-text: 625 -->Assertions<!-- /react-text --></th></tr></thead><tbody></tbody></table><div class=""><table><tbody><tr class="rs-page__field"><td class="rs-page__field-label-holder"><span class="rs-page__field-label">
+                      Date Start
+                    </span></td><td><span class="rs-page__field-value"><div>
+                      </div></span></td><td class="center rs-page__count--title">
+                        <div class="rs-page__count--field-annotation">
+                          <span class="badge">0</span></a></div>
+                            </td><td class="center rs-page__count--title">
+                              <div class="rs-page__count--field-assertion">
+                                <span class="badge">0</span></a></div>
+                                  </td></tr></tbody></table><table><tbody><tr class="rs-page__field"><td class="rs-page__field-label-holder">
+                                    <span class="rs-page__field-label">
+                      Date End
+                    </span></td><td><span class="rs-page__field-value"><div>
+                      </div></span></td><td class="center rs-page__count--title">
+                        <div class="rs-page__count--field-annotation">
+                          <span class="badge">0</span></a>
+                        </div>
+                          </td><td class="center rs-page__count--title">
+                            <div class="rs-page__count--field-assertion">
+                              <span class="badge">0</span></a>
+                            </div>
+                              </td></tr></tbody></table><table><tbody><tr class="rs-page__field"><td class="rs-page__field-label-holder">
+                                <span class="rs-page__field-label">
+                      Geographical coordinates
+                    </span></td><td><span class="rs-page__field-value">
+                      </span></td><td class="center rs-page__count--title">
+                        <div class="rs-page__count--field-annotation">
+                          <span class="badge">0</span></a>
+                        </div>
+                      </td><td class="center rs-page__count--title">
+                        <div class="rs-page__count--field-assertion">
+                            <span class="badge">0</span>
+                          </div></td></tr></tbody></table><table><tbody><tr class="rs-page__field"><td class="rs-page__field-label-holder"><span class="rs-page__field-label">
+                                <strong></strong></div></div></div>
+              </div>
+              <div class="images">          
+                  <semantic-carousel
+                  query="
+                        prefix person: <http://example.com/person/> 
+                        prefix org: <http://example.com/org/> 
+                        SELECT ?subject ?thumbnail ?label WHERE {                    
+                          VALUES (?subject ?thumbnail ?label){ 
+                            (Help:SemanticTable '../../images/hache1.jpg' 'la hache')
+                            (Help:SemanticGraph '../../images/hache2.jpg' 'hache flipped')
+                            (Help:SemanticSimpleSearch '../../images/hache3.jpg' 'la tete')
+                            (Help:SemanticCarousel '../../images/hache4.jpg' 'tete flipped')
+                            (Help:SemanticChart '../../images/hache5.jpg' 'le detail')
+                            (Help:SemanticMap '../../images/hache6.jpg' 'le manche')
+                          }
+                        }"
+                  tuple-template='<img src="{{thumbnail.value}}" style="max-height:260px; margin: 0 auto;" class="img-rounded">'
+                  ></semantic-carousel>
+              </div>
+            </bs-tab>  
+            <bs-tab event-key="1" title="Source">
+              [[> Platform:SourceStatements]]
+            </bs-tab>
+            <bs-tab event-key="2" class="tab-ontodia" title="Graphe de connaissance">
+              <ontodia id='ontodia' hide-toolbar  =true hide-panels=true hide-scroll-bars=true hide-navigation-confirmation=true auto-zoom=true settings=nostats iri='[[this]]'></ontodia>
+            </bs-tab>
+            <bs-tab event-key="3" class="tab-ontodia" title="Carte">
+                <semantic-map
+                    query='
+                    PREFIX geo:  <http://www.opengis.net/ont/geosparql#>
+                    SELECT ?lat ?long WHERE {
+                      VALUES(?lat ?lng ?description ?link) {
+                        ("45.4413" "-73.6886" "Lachine" <http://www.wikidata.org/entity/Q22132500>)
+                      }
+                    }'
+               tuple-template='<b>{{description.value}}</b><br><a href="https://wikidata.metaphacts.com/resource/?uri={{link.value}}" target="_blank">Open in wikidata</a>'
+              ></semantic-map>
+            </bs-tab>
+            <bs-tab event-key="4" class="tab-ontodia" title="Ligne du temps">
+                <semantic-timeline 
+                    query='PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                    SELECT ?start ?end ?subject WHERE {
+                        VALUES (?start ?end ?subject) {
+                            ("1899-07-21"^^xsd:date "1961-07-02"^^xsd:date "Bataille de Lachine")
+                        }
+                    }' 
+                tuple-template="{{> template}}" tuple-template-height="42">
+                    <template id="template">
+                    <div>
+                        <b>{{subject.value}}</b>
+                        <div>{{start.value}} - {{end.value}}</div>
+                    </div>
+                    </template>
+                ></semantic-timeline>            
+            </bs-tab>
+            [[> "http://www.metaphacts.com/resource/LinksToOtherDatabases" eventKey='2']]
+          </bs-tabs>
+        [[else]]
+        <div class='page__body'>
+          <p>
+            It seems that no entity with IRI <code>"[[this]]"</code> in any subject, predicate or object position is known in the knowledge graph. Also no static application page with this identifier can be found.
+          </p>
+          <p>
+            Click on the edit button (<i class="fa fa-pencil"></i>) in the top right of this page (<i>only visibile if the respective ACL permissions are being granted to you</i>) to create a new, static application page with this identifier.
+          </p>
+        </div>
+        [[/if]]
+      </div>
+      
