@@ -120,13 +120,13 @@ body {
   }
 
   .form-control, input {
-    border-width: 2px;
+    border-width: 1px;
   }
 
   .form-control {
     border-color: $input-border;
     &:focus {
-      border-color: #b3b3b3;
+      border-color: grey;
     }
   }
 }
