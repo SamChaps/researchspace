@@ -30,6 +30,7 @@
             </bs-nav-item>
             <bs-nav-item event-key="related">Explore Related</bs-nav-item>
             <bs-nav-item event-key="source" title="Knowledge Graph">Source</bs-nav-item>
+            <bs-nav-item event-key="map" title="Knowledge Graph">Map</bs-nav-item>
           </bs-nav>
   
           <bs-tab-content unmount-on-exit=true>
@@ -46,6 +47,18 @@
             </bs-tab-pane>
             <bs-tab-pane event-key="source">
               [[> Platform:SourceStatements]]
+            </bs-tab-pane>
+            <bs-tab-pane event-key="map">
+              <semantic-map
+                    query='
+                    PREFIX geo:  <http://www.opengis.net/ont/geosparql#>
+                    SELECT ?lat ?lng WHERE {
+                      VALUES(?lat ?lng) {
+                        ("45.4413" "-73.6886")
+                      }
+                    }'
+               tuple-template='<b>{{description.value}}</b><br><a href="https://wikidata.metaphacts.com/resource/?uri={{link.value}}" target="_blank">Open in wikidata</a>'
+              ></semantic-map>
             </bs-tab-pane>
           </bs-tab-content>
         </div>
