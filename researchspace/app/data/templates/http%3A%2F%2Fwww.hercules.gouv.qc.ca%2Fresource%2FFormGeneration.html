@@ -1,0 +1,53 @@
+<semantic-form new-subject-template='http://culture.gouv.qc.ca/entity/{{UUID}}' post-action='redirect'
+  browser-persistence=true form-id='ClassForm' fields='[
+  {
+    "id": "type",
+    "label": "[[i18n "type" locale=(urlParam "preferredLanguage")]]",
+    "description": "[[i18n "formGenerationTypeDescription" locale=(urlParam "preferredLanguage")]]",
+    "xsdDatatype": "xsd:anyURI",
+    "selectPattern": "SELECT $value WHERE { $subject a $value }",
+    "insertPattern": "INSERT { $subject a $value } WHERE { }",
+    "deletePattern": "DELETE { $subject a $value } WHERE { }"
+  },
+  {
+    "id": "class",
+    "label": "[[i18n "class" locale=(urlParam "preferredLanguage")]]",
+    "description": "[[i18n "formGenerationClassDescription" locale=(urlParam "preferredLanguage")]]",
+    "xsdDatatype": "xsd:anyURI",
+    "minOccurs": "1",
+    "maxOccurs": "1",
+    "defaultValues": [ "http://erlangen-crm.org/170309/E1_CRM_Entity" ],
+    "valueSetPattern": "
+      SELECT $value $label WHERE {
+        $value a owl:Class .
+        $value rdfs:label $label .
+      }
+    ",
+    "selectPattern": "SELECT $value WHERE { $subject <http://hercules.gouv.qc.ca/ontology/meta/hasClass> $value }",
+    "insertPattern": "INSERT { $subject <http://hercules.gouv.qc.ca/ontology/meta/hasClass> $value } WHERE { }",
+    "deletePattern": "DELETE { $subject <http://hercules.gouv.qc.ca/ontology/meta/hasClass> $value } WHERE { }"
+  },
+  {
+    "id": "name",
+    "label": "[[i18n "name" locale=(urlParam "preferredLanguage")]]",
+    "description": "[[i18n "formGenerationNameDescription" locale=(urlParam "preferredLanguage")]]",
+    "xsdDatatype": "xsd:string",
+    "minOccurs": "1",
+    "maxOccurs": "1",
+    "selectPattern": "SELECT $value WHERE { $subject <http://hercules.gouv.qc.ca/ontology/meta/hasName> $value }",
+    "insertPattern": "INSERT { $subject <http://hercules.gouv.qc.ca/ontology/meta/hasName> $value } WHERE { }",
+    "deletePattern": "DELETE { $subject <http://hercules.gouv.qc.ca/ontology/meta/hasName> $value } WHERE { }"
+  }
+  ]'>
+  <bs-panel>
+    <h4>[[i18n "chooseClass" locale=(urlParam "preferredLanguage")]]</h4>
+    <semantic-form-recover-notification></semantic-form-recover-notification>
+    <bs-tabs fixed-key="form">
+      <semantic-form-hidden-input for='type' default-value='http://hercules.gouv.qc.ca/ontology/meta/FieldForm' placeholder='[[i18n "typePlaceholder" locale=(urlParam "preferredLanguage")]]'></semantic-form-hidden-input>
+      <semantic-form-text-input for='name' placeholder='[[i18n "namePlaceholder" locale=(urlParam "preferredLanguage")]]'></semantic-form-text-input>
+      <semantic-form-select-input for='class' placeholder='[[i18n "classPlaceholder" locale=(urlParam "preferredLanguage")]]'></semantic-form-select-input>
+      
+    <button name='submit' class='btn btn-default'>[[i18n "next" locale=(urlParam "preferredLanguage")]]</button>
+    <button name='reset' class='btn btn-default'>[[i18n "reset" locale=(urlParam "preferredLanguage")]]</button>
+  </bs-panel>
+</semantic-form>
