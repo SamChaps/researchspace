@@ -53,12 +53,29 @@
       [[> Platform:DefaultResourceHeader]]
     </div>
     <bs-tabs id="tabs" class='page__body-navtabs' unmount-on-exit=true>
-      <bs-tab event-key="0" class="tab-ontodia" title="Knowledge Graph">
+      <bs-tab event-key="0" class="tab-ontodia" title="Summary">
+        [[> Summary]]
+      </bs-tab>
+      <bs-tab event-key="1" class="tab-ontodia" title="Knowledge Graph">
         <ontodia id='ontodia' hide-toolbar=true hide-panels=true hide-scroll-bars=true hide-navigation-confirmation=true auto-zoom=true settings=nostats iri='[[this]]'></ontodia>
       </bs-tab>
-      <bs-tab event-key="1" title="Source">
+      <bs-tab event-key="2" title="Source">
         [[> Platform:SourceStatements]]
       </bs-tab>
+      <bs-tab event-key="3" title="Maps">
+        <semantic-map
+                  query='
+                  PREFIX geo:  <http://www.opengis.net/ont/geosparql#>
+                  SELECT ?lat ?long WHERE {
+                      ?? :P7 ?place .
+                      ?place :P97 ?coord .
+                      ?coord geo:lat ?lat .
+                      ?coord geo:long ?long .
+                  }'
+              tuple-template='<b>{{description.value}}</b><br><a href="https://wikidata.metaphacts.com/resource/?uri={{link.value}}" target="_blank">Open in wikidata</a>'
+        ></semantic-map>
+      </bs-tab>
+
       [[> "http://www.metaphacts.com/resource/LinksToOtherDatabases" eventKey='2']]
     </bs-tabs>
   [[else]]
