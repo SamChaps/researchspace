@@ -21,16 +21,16 @@
         [[/if]]
         <div>
           <bs-nav bs-style="tabs" id="tabs">
-            <bs-nav-item event-key="summary">Summary</bs-nav-item>
+            <bs-nav-item event-key="summary">[[i18n "summary" locale=(urlParam "preferredLanguage")]]</bs-nav-item>
             <bs-nav-item event-key="annotations">
-              Annotations <semantic-context repository='assets'><semantic-query query="SELECT (COUNT(DISTINCT ?s) AS ?count) WHERE {
+                [[i18n "annotations" locale=(urlParam "preferredLanguage")]] <semantic-context repository='assets'><semantic-query query="SELECT (COUNT(DISTINCT ?s) AS ?count) WHERE {
                 ?s <http://www.ics.forth.gr/isl/CRMdig/L43_annotates> ??;
                 }"
                 template='{{#each bindings}}<span class="badge">{{count.value}}</span>{{/each}}'></semantic-query></semantic-context>
             </bs-nav-item>
-            <bs-nav-item event-key="related">Explore Related</bs-nav-item>
+            <bs-nav-item event-key="related">[[i18n "explore" locale=(urlParam "preferredLanguage")]]</bs-nav-item>
             <bs-nav-item event-key="source" title="Knowledge Graph">Source</bs-nav-item>
-            <bs-nav-item event-key="map" title="Knowledge Graph">Map</bs-nav-item>
+            <bs-nav-item event-key="map" title="Knowledge Graph">[[i18n "maps" locale=(urlParam "preferredLanguage")]]</bs-nav-item>
           </bs-nav>
   
           <bs-tab-content unmount-on-exit=true>
