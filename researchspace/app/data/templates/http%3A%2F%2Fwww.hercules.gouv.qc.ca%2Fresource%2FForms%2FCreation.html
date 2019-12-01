@@ -34,6 +34,7 @@
                   $value a owl:Class .
                   $value rdfs:label $label .
                   FILTER langMatches(lang($label) , \"[[urlParam "preferredLanguage"]]\")
+                  FILTER regex(str($value), \"^(?!http://hercules.gouv.qc.ca/ontology/meta/)(.+)\")
                 }
               ",
               "selectPattern": "SELECT $value WHERE { $subject <http://hercules.gouv.qc.ca/ontology/meta/forClass> $value }",
