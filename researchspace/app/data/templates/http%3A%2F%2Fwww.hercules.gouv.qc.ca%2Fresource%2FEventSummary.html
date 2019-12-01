@@ -31,7 +31,7 @@
             <div style="margin-top:18px;margin-left:20px;">
               <mp-overlay-dialog title="All available fields for [[singleValueFromSelect 'SELECT ?label WHERE {?? (rdfs:label | rso:displayLabel) ?label}']]" bs-size='lg'>
                 <mp-overlay-dialog-trigger>
-                  <strong><a>Assert new value...</a></strong>
+                  <strong><a>[[i18n "assert" locale=(urlParam "preferredLanguage")]]</a></strong>
                 </mp-overlay-dialog-trigger>
                 <mp-overlay-dialog-content>
                   <mp-page-loader iri="http://www.hercules.gouv.qc.ca/resource/AllFieldsModal" urlqueryparam-type='crm:E5_Event'></mp-page-loader>
@@ -44,7 +44,7 @@
     </div>
     [[/inline]]
 
-    [[> values title='British Museum']]
+    
     <semantic-context repository='assets'>
       [[> values title='Community' asserted=true]]
     </semantic-context>
