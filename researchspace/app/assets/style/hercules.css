@@ -145,3 +145,7 @@
 .popover {
     color: #696969 !important;
 }
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #d82880;
+}
