@@ -28,27 +28,6 @@
             <bs-tab event-key="2" class="tab-ontodia" title=[[i18n "knowledgegraph" locale=(urlParam "preferredLanguage")]]>
               <ontodia id='ontodia' hide-toolbar  =true hide-panels=true hide-scroll-bars=true hide-navigation-confirmation=true auto-zoom=true settings=nostats iri='[[this]]'></ontodia>
             </bs-tab>
-            <bs-tab event-key="3" class="tab-ontodia" title=[[i18n "timeline" locale=(urlParam "preferredLanguage")]]>
-                <semantic-timeline 
-                query='
-                  PREFIX mcc: <http://erlangen-crm.org/current/>
-                  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-                  SELECT ?start ?end ?subject WHERE {
-                    VALUES (?start ?end ?subject) {
-                      ("1995-10-15"^^xsd:date "2019-11-17"^^xsd:date "Samuel Chapleau")
-                    }
-                  }' 
-                  
-                  tuple-template="{{> template}}" tuple-tyujiadingemplate-height="42">
-                      <template id="template">
-                        <div>
-                          <b>{{subject.value}}</b>
-                          <div>{{start.value - end.value}}</div>
-                        </div>
-                      </template>
-                  </semantic-timeline>          
-            </bs-tab>
             [[> "http://www.metaphacts.com/resource/LinksToOtherDatabases" eventKey='2']]
           </bs-tabs>
         [[else]]

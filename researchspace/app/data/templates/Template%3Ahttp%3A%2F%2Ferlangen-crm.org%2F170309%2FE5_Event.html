@@ -38,23 +38,6 @@
                tuple-template='<b>{{description.value}}</b><br><a href="https://wikidata.metaphacts.com/resource/?uri={{link.value}}" target="_blank">Open in wikidata</a>'
               ></semantic-map>
             </bs-tab>
-            <bs-tab event-key="4" class="tab-ontodia" title="Ligne du temps">
-                <semantic-timeline 
-                    query='PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-                    SELECT ?start ?end ?subject WHERE {
-                        VALUES (?start ?end ?subject) {
-                            ("1899-07-21"^^xsd:date "1961-07-02"^^xsd:date "Bataille de Lachine")
-                        }
-                    }' 
-                tuple-template="{{> template}}" tuple-template-height="42">
-                    <template id="template">
-                    <div>
-                        <b>{{subject.value}}</b>
-                        <div>{{start.value}} - {{end.value}}</div>
-                    </div>
-                    </template>
-                ></semantic-timeline>            
-            </bs-tab>
             [[> "http://www.metaphacts.com/resource/LinksToOtherDatabases" eventKey='2']]
           </bs-tabs>
         [[else]]
