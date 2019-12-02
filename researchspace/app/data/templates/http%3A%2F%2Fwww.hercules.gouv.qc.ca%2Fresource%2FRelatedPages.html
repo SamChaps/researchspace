@@ -1,6 +1,6 @@
 <div class="rs-page__tab-content">
   <div style="margin-bottom:24px;">
-    <strong>Related Pages</strong>
+    <strong>[[i18n "relatedp" locale=(urlParam "preferredLanguage")]]</strong>
   </div>
   [[#if (ask 'ASK {?page a <http://www.researchspace.org/ontology/UserDefinedPage>; ?p ??; rdfs:label ?label; <http://www.w3.org/ns/prov#generatedAtTime> ?time . ?p rdfs:label ?plabel . FILTER(STRSTARTS(STR(?p), "http://purl.org/spar/cito/")) }')]]
   <semantic-table config='{
@@ -29,6 +29,6 @@
     }]
 }'></semantic-table>
   [[else]]
-  <div><p>No related pages found.</p></div>
+  <div><p>[[i18n "nor" locale=(urlParam "preferredLanguage")]]</p></div>
   [[/if]]
 </div>

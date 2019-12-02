@@ -1,6 +1,6 @@
 <div class="rs-page__tab-content">
   <div style="margin-bottom:24px;">
-    <strong>Related Assertions</strong>
+    <strong>[[i18n "relateda" locale=(urlParam "preferredLanguage")]]</strong>
   </div>
 
   [[#if (ask 'ASK {?belief <http://www.researchspace.org/ontology/PX_premise_target> ?? . ?premise <http://www.ics.forth.gr/isl/CRMinf/J1_used_as_premise> ?belief; <http://www.ics.forth.gr/isl/CRMinf/J2_concluded_that> ?belief2 . ?assertion <http://www.researchspace.org/ontology/PX_asserts> ?belief2; rdfs:label ?label; crm:P14_carried_out_by ?user; <http://www.w3.org/ns/prov#generatedAtTime> ?time . }')]]
@@ -43,6 +43,6 @@
       }]
   }'></semantic-table>
   [[else]]
-  <div><p>No related assertions found.</p></div>
+  <div><p>[[i18n "noa" locale=(urlParam "preferredLanguage")]]</p></div>
   [[/if]]
 </div>

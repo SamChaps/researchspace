@@ -1,6 +1,6 @@
 <div class="rs-page__tab-content">
   <div style="margin-bottom:24px;">
-    <strong>Related Image Regions</strong>
+    <strong>[[i18n "related" locale=(urlParam "preferredLanguage")]]</strong>
   </div>
   <semantic-context repository='assets'>
     [[#if (ask 'ASK { ?iri a crmdig:D35_Area; crmdig:L49_is_primary_area_of ?? . }')]]
@@ -34,7 +34,7 @@
     </mp-selection-group>
     [[else]]
     <div>
-      <p>No related image regions found.</p>
+      <p>[[i18n "none" locale=(urlParam "preferredLanguage")]]</p>
     </div>
     [[/if]]
   </semantic-context>
