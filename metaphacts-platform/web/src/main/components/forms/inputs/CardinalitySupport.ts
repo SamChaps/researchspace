@@ -149,7 +149,7 @@ export class CardinalitySupport extends MultipleValuesInput<CardinalitySupportPr
             [`${COMPONENT_NAME}__add-value--another`]: size > 0,
           }),
           onClick: this.addNewValue,
-        }, `+ Add ${fieldLabel}`)
+        }, `+ Ajouter ${fieldLabel}`)
       ) : null,
     );
   }

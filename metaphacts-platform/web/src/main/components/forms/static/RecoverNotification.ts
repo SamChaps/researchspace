@@ -52,7 +52,7 @@ export class RecoverNotification
         style: style,
       },
       D.div({className: `${CLASS_NAME}__message`},
-        D.b({}, 'Form data has been recovered from browser storage!')
+        D.b({}, 'Un formulaire incomplet a été récupéré en cache! Voulez-vous le charger ?')
       ),
       D.button(
         {
@@ -62,7 +62,7 @@ export class RecoverNotification
           title: 'Hide notification',
         },
         D.i({id: 'hide-i', className: 'fa fa-check'}),
-        D.span({id: 'hide-span'}, ' Ok. Hide Notification.'),
+        D.span({id: 'hide-span'}, ' Oui ! Récupérer les données.'),
       ),
       D.button(
         {
@@ -71,7 +71,7 @@ export class RecoverNotification
           title: 'Reset form to default state discarding all recovered data',
         },
         D.i({id: 'discard-i', className: 'fa fa-times'}),
-        D.span({id: 'discard-span'}, ' Discard recovered data.'),
+        D.span({id: 'discard-span'}, ' Non. Ne pas récupérer les données.'),
       )
     );
   }
