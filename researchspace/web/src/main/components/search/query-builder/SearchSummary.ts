@@ -52,7 +52,7 @@ interface ConjunctText {
 export class SearchSummary extends Component<Props, {}> {
 
   private static VOCABULARY = {
-    EMPTY: 'What do you want to find?',
+    EMPTY: 'Que cherchez-vous ?',
     SUMMARY_PREFIX: 'Find:',
     UNKNOWN_CLAUSE: 'unknow search clause type',
     RELATION_PLACEHOLDER: '... related to ...',
