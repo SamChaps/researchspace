@@ -23,20 +23,8 @@
             <bs-tab event-key="1" title="Source">
               [[> Platform:SourceStatements]]
             </bs-tab>
-            <bs-tab event-key="2" class="tab-ontodia" title="Graphe de connaissance">
+            <bs-tab event-key="2" class="tab-ontodia" title=[[i18n "knowledgegraph" locale=(urlParam "preferredLanguage")]]>
               <ontodia id='ontodia' hide-toolbar  =true hide-panels=true hide-scroll-bars=true hide-navigation-confirmation=true auto-zoom=true settings=nostats iri='[[this]]'></ontodia>
-            </bs-tab>
-            <bs-tab event-key="3" class="tab-ontodia" title="Carte">
-                <semantic-map
-                    query='
-                    PREFIX geo:  <http://www.opengis.net/ont/geosparql#>
-                    SELECT ?lat ?long WHERE {
-                      VALUES(?lat ?lng ?description ?link) {
-                        ("45.4413" "-73.6886" "Lachine" <http://www.wikidata.org/entity/Q22132500>)
-                      }
-                    }'
-               tuple-template='<b>{{description.value}}</b><br><a href="https://wikidata.metaphacts.com/resource/?uri={{link.value}}" target="_blank">Open in wikidata</a>'
-              ></semantic-map>
             </bs-tab>
             [[> "http://www.metaphacts.com/resource/LinksToOtherDatabases" eventKey='2']]
           </bs-tabs>
