@@ -109,7 +109,7 @@ const DEFAULT_AUTOSUGGESTION = `SELECT ?value ?label WHERE {
 class FieldEditorComponent extends Component<Props, State> {
   static readonly defaultProps: Partial<Props> = {
     categoryScheme: '<http://www.metaphacts.com/ontologies/platform/FieldCategories>',
-    navigateTo: 'http://www.metaphacts.com/resource/assets/Fields',
+    navigateTo: ':FieldCatalog',
   };
   private readonly languages: ReadonlyArray<string>;
 
