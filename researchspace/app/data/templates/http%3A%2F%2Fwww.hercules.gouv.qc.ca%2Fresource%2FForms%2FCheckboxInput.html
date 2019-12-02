@@ -52,6 +52,8 @@
         FILTER NOT EXISTS { 
           $value <http://www.metaphacts.com/ontology/fields#xsdDatatype> ?dataType .      
         }    
+        FILTER($value != <http://www.hercules.gouv.qc.ca/instances/fields/Type>)
+        FILTER($value != <http://www.hercules.gouv.qc.ca/instances/fields/Label>)
       }
     }
     ",

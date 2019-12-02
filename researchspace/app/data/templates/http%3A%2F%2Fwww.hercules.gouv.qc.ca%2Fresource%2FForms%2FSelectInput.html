@@ -31,6 +31,8 @@
         $value rdfs:label $label .
         FILTER NOT EXISTS { $value <http://www.metaphacts.com/ontology/fields#domain> ?domainClass . }
       }
+      FILTER($value != <http://www.hercules.gouv.qc.ca/instances/fields/Type>)
+      FILTER($value != <http://www.hercules.gouv.qc.ca/instances/fields/Label>)
     }
     ",
     "selectPattern": "SELECT $value WHERE { $subject <http://hercules.gouv.qc.ca/ontology/meta/forField> $value }",
