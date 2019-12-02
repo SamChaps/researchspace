@@ -140,9 +140,9 @@ class PageEditorToolbarComponent extends Component<PageEditorToolbarProps, PageE
             resource: this.props.iri,
             className: 'btn btn-default component-page-toolbar__btn_edit',
             activeClassName: 'active',
-            title: 'Edit Page',
+            title: 'Modifier la page',
             action: ResourceLinkAction.edit,
-          }, D.span({}, ' Edit Page')) : null,
+          }, D.span({}, ' Modifier la page')) : null,
         ...(this.state.showExploreActions ? this.renderExploreActions() : [null]),
         this.state.pageIsResource ? this.renderIriCopyAction() : null
       )
