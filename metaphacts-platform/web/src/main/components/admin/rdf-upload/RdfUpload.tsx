@@ -131,10 +131,10 @@ export class RdfUpload extends Component<Props, State> {
       });
 
       this.cancellation.map(upload).observe({
-        value: () => this.appendUploadMessage('File: ' + file.name + ' uploaded.'),
+        value: () => this.appendUploadMessage('Fichier: ' + file.name + ' téléversé.'),
         error: error => {
           console.error(error);
-          this.appendUploadMessage('File: ' + file.name + ' failed.', error);
+          this.appendUploadMessage('Fichier: ' + file.name + ' échoué.', error);
         },
       });
       return upload;
@@ -179,7 +179,7 @@ export class RdfUpload extends Component<Props, State> {
     const messages = this.state.messages.map((config, index) => <Alert key={index} {...config} />);
     const progressBar = this.state.progress.map(progress => (
       <ProgressBar active min={0} max={100}
-        now={progress} label={this.state.progressText.getOrElse('Uploading Files')}
+        now={progress} label={this.state.progressText.getOrElse('Téléversement de fichiers')}
       />
     )).getOrElse(null);
 
@@ -188,37 +188,36 @@ export class RdfUpload extends Component<Props, State> {
     return (
       <div className={classnames(CLASS_NAME, className)} style={style}>
         <a onClick={() => this.setState({showOptions: !this.state.showOptions})}>
-          Advanced Options
+          Options avancées
         </a>
         {this.renderAdvancedOptions()}
         <Tabs id='rdf-upload-tabs' unmountOnExit={true}>
           {this.renderTabExtensions()}
-          <Tab eventKey={1} className={tabClass} title='File Upload' disabled={isInProcess}>
+          <Tab eventKey={1} className={tabClass} title='Téléversement de fichiers' disabled={isInProcess}>
             {progressBar}
             <div className={noteClass}>
-              RDF files can be uploaded using the drag&amp;drop field below.
-              Clicking into the field will open the browser's default file selector.
+              Les fichiers RDF peuvent être téléversés en utilisant le champ glisser-déposer ci-dessous.
+              Un clic dans le champ ouvrira le sélecteur de fichier par défaut du navigateur.
             </div>
             <Dropzone onDrop={this.onDrop}>
               <div className={`${CLASS_NAME}__rdf-dropzone-content`}>
-                Please drag&amp;drop your RDF file(s) here.
+              S’il vous plaît, faites glisser et déposez votre/vos fichier(s) RDF ici.
               </div>
             </Dropzone>
             {messages}
           </Tab>
           {/* load by URL doesn't make any sense for Neptune repository */}
           {this.state.repositoryType !== NeptuneRepositoryType ?
-            <Tab eventKey={2} className={tabClass} title='Load by HTTP/FTP/File URL'
+            <Tab eventKey={2} className={tabClass} title='Charger par HTTP/FTP/URL du fichier'
                 disabled={isInProcess}>
               {progressBar}
               <div className={noteClass}>
-                Please note: Loading via HTTP/FTP/File URL depends on the database backend
-                i.e. it must support the SPARQL LOAD command and must allow outgoing
-                network connections to the publicly accessible HTTP/FTP URLs or must have
-                access to the File URL respectively.
+                Remarques importantes : Le chargement via HTTP/FTP/URL du fichier dépend de la base de données.
+                ex. il doit prendre en charge la commande SPARQL LOAD et autoriser les connexions réseau sortantes
+                vers les URL HTTP/FTP publiques ou avoir accès à l'URL du fichier, respectivement.
               </div>
               <FormControl type='text' value={this.state.remoteFileUrl || ''}
-                placeholder='Please enter publicly accessible HTTP/FTP URL'
+                placeholder='Veuillez entrer l&#39;URL HTTP/FTP publique'
                 onChange={e => this.setState({
                   remoteFileUrl: (e.currentTarget as any as HTMLInputElement).value,
                 })}
@@ -226,7 +225,7 @@ export class RdfUpload extends Component<Props, State> {
               <Button bsStyle='primary' className={`${CLASS_NAME}__load-button`}
                 disabled={!this.state.remoteFileUrl || isInProcess}
                 onClick={this.onClickLoadByUrl}>
-                Load by URL
+                Charger par URL
               </Button>
               {messages}
             </Tab> : null
@@ -263,12 +262,12 @@ export class RdfUpload extends Component<Props, State> {
     return (
       <Panel className='' collapsible expanded={this.state.showOptions}>
         <FormControl type='text' label='Target NamedGraph'
-          placeholder='URI of the target NamedGraph. Will be generated automatically if empty.'
+          placeholder='URI du graphe nommé cible. Sera généré automatiquement si vide.'
           onChange={this.onChangeTargetGraph}
         />
         <Checkbox label='Keep source NamedGraphs'
           onChange={this.onChangeKeepSourceGraphs}>
-          Keep source NamedGraphs
+          Conserver les graphiques nommés source
         </Checkbox>
       </Panel>
     );
@@ -286,15 +285,15 @@ export class RdfUpload extends Component<Props, State> {
       updateQuery = makeLoadQuery(remoteFileUrl, targetGraph);
     } catch (error) {
       const message = targetGraph.isJust
-        ? 'Error constructing update query (probably invalid file or named graph URL?)'
-        : 'Error constructing update query (probably invalid file URL?)';
+        ? 'Erreur de construction de la requête de mise à jour (fichier probablement non valide ou URL de graphique nommée ?)'
+        : 'Erreur de construction de la requête de mise à jour (URL de fichier probablement non valide ?)';
       this.appendUploadMessage(message, error);
       return;
     }
 
     this.setState({
       progress: maybe.Just<number>(100),
-      progressText: maybe.Just<string>('Database is processing the LOAD command'),
+      progressText: maybe.Just<string>('La base de données traite la commande LOAD'),
     });
 
     const {semanticContext} = this.context;
@@ -302,12 +301,12 @@ export class RdfUpload extends Component<Props, State> {
       SparqlClient.executeSparqlUpdate(updateQuery, {context: semanticContext})
     ).observe({
       value: () => {
-        this.appendUploadMessage('File from URL successfully loaded.');
+        this.appendUploadMessage('Fichier de l&#39;URL a été chargé avec succès.');
         setTimeout(() => refresh() , 2000);
       },
       error: error => {
         console.error(error);
-        this.appendUploadMessage('Failed to load file from URL.', error);
+        this.appendUploadMessage('Échec du chargement du fichier à partir de l&#39;URL.', error);
       },
       end: () => {
         this.setState({
@@ -327,7 +326,7 @@ function makeLoadQuery(remoteFileUrl: string, targetGraph: Data.Maybe<string>): 
   const query = `LOAD <${encodeURI(remoteFileUrl)}> INTO GRAPH <${encodeURI(targetGraphIri)}>`;
   const parsedUpdate = SparqlUtil.parseQuery(query);
   if (parsedUpdate.type !== 'update') {
-    throw new Error('Query must be an update operation');
+    throw new Error('La requête doit être une opération de mise à jour');
   }
 
   return parsedUpdate;

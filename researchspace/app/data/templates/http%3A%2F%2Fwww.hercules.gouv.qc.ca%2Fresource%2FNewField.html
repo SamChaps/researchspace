@@ -1,12 +1,12 @@
 <ol class="page-breadcrumb">
-  <li><a title="Home" href="/">Home</a></li>
+  <li><a title="Home" href="/">[[i18n "home" locale=(urlParam "preferredLanguage")]]</a></li>
   <li>
     <semantic-link uri='http://www.hercules.gouv.qc.ca/resource/FieldCatalog'>
-      Field Definition Catalog
+      [[i18n "knowledgePatternsCatalog" locale=(urlParam "preferredLanguage")]]
     </semantic-link>
   </li>
   <li class="active">
-    New Field Definition
+    [[i18n "newFieldDefinition" locale=(urlParam "preferredLanguage")]]
   </li>
 </ol>
 
@@ -15,13 +15,13 @@
 <div class="page">
 [[#>:ClipboardSidebar]]
 
-  [[> :assetpageHeader title="New Field Definition" icon="fa-list-ul"]]
+  [[> :assetpageHeader title=(i18n "newFieldDefinition" locale=(urlParam "preferredLanguage")) icon="fa-list-ul"]]
 
   <div class="container-fluid">
       <bs-row class="row-center">
           <bs-col xs=11 sm=10 md=10 lg=8 style='padding-bottom: 40px;'>
     
-        		<field-editor field-instance-base-iri="http://www.researchspace.org/instances/fields/"></field-editor>
+        		<field-editor field-instance-base-iri="http://www.hercules.gouv.qc.ca/instances/fields/"></field-editor>
             
            </bs-col>   
       </bs-row> <!--  close row -->

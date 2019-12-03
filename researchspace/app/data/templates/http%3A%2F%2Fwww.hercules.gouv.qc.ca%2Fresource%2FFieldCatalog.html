@@ -141,9 +141,9 @@
                                    ?subject <http://www.w3.org/ns/prov#generatedAtTime> ?ModificationDate .
                                  }'
                         column-configuration='[
-                                        {"displayName":"Field", "cellTemplate": "{{> field}}"},
-                                        {"displayName":"Modified", "cellTemplate": "{{dateTimeFormat ModificationDate.value \"LLL\"}}" },
-                                        {"displayName":"Delete", "cellTemplate": "{{> actions}}"}
+                                        {"displayName":"[[i18n "knowledgePattern" locale=(urlParam "preferredLanguage")]]", "cellTemplate": "{{> field}}"},
+                                        {"displayName":"[[i18n "modified" locale=(urlParam "preferredLanguage")]]", "cellTemplate": "{{dateTimeFormat ModificationDate.value \"LLL\"}}" },
+                                        {"displayName":"[[i18n "delete" locale=(urlParam "preferredLanguage")]]", "cellTemplate": "{{> actions}}"}
                                    ]'
                       >
                         <template id='field'>
@@ -158,10 +158,10 @@
                         <template id='actions'>
                           <div>
                             <mp-ldp-duplicate-resource-action iri="{{subject.value}}" container="http://www.metaphacts.com/ontologies/platform#fieldDefinitionContainer">
-                              <button class="btn btn-xs btn-default" style="margin-right:8px;"><i class="fa fa-files-o" aria-hidden="true"></i> Duplicate</button>
+                              <button class="btn btn-xs btn-default" style="margin-right:8px;"><i class="fa fa-files-o" aria-hidden="true"></i> [[i18n "duplicate" locale=(urlParam "preferredLanguage")]]</button>
                             </mp-ldp-duplicate-resource-action>
                             <mp-ldp-remove-from-container-action iri="{{subject.value}}" container="http://www.metaphacts.com/ontologies/platform#fieldDefinitionContainer">
-                              <button class="btn btn-xs btn-danger" style="margin-right:8px;"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+                              <button class="btn btn-xs btn-danger" style="margin-right:8px;"><i class="fa fa-trash" aria-hidden="true"></i> [[i18n "delete" locale=(urlParam "preferredLanguage")]]</button>
                             </mp-ldp-remove-from-container-action>
                           </div>
                         </template>

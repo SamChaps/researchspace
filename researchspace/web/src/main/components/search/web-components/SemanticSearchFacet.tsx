@@ -187,7 +187,7 @@ class SemanticSearchFacetInner extends React.Component<InnerProps, State> {
           }),
           onClick: this.toggleFilter,
         },
-        this.state.showFacets ? 'Hide Filter' : 'Show Filter'
+        this.state.showFacets ? 'Mas. filtres' : 'Aff. filtres'
         )
       );
     } else {
