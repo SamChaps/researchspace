@@ -62,8 +62,8 @@
                     {{/ifCond}}
 
                     {{#ifCond inputType.value "==" "http://hercules.gouv.qc.ca/ontology/meta/ChecklistInput"}}
-                    <semantic-form-checklist-input for='{{field.value}}' type='{{type.value}}'
-                      row='{{orientation.value}}'></semantic-form-checklist-input>
+                    <semantic-form-checklist-input for='{{field.value}}' type='{{clType.value}}'
+                      row='{{clOrientation.value}}'></semantic-form-checklist-input>
                     {{/ifCond}}
 
                     {{#ifCond inputType.value "==" "http://hercules.gouv.qc.ca/ontology/meta/CheckboxInput"}}
