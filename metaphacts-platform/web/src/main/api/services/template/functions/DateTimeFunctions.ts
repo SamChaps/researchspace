@@ -18,6 +18,8 @@
 
 import * as moment from 'moment';
 
+import { getPreferredUserLanguage } from '../../language';
+
 export const DateTimeFunctions = {
   /**
    * Date-time formating function. Default format is
@@ -34,6 +36,11 @@ export const DateTimeFunctions = {
     }
     if (typeof sourceFormat !== 'string') {
       sourceFormat = undefined;
+    }
+    if (getPreferredUserLanguage()) {
+      moment.locale(getPreferredUserLanguage());
+    } else {
+      moment.locale('en');
     }
     return moment(dateTime, sourceFormat).format(format);
   },
