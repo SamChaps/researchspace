@@ -17,9 +17,9 @@
            "kind": "date-range",
            "queryPattern": "
            {
-            $subject <http://erlangen-crm.org/170309/P98i_was_born> ?birth .
-            ?birth <http://erlangen-crm.org/170309/P4_has_time-span> ?timespan .
-            ?timespan <http://cidoccrm-mccq.gouv.qc.ca/P82a_begin_of_the_begin> ?begin .
+            $subject <http://www.cidoc-crm.org/cidoc-crm/P98i_was_born> ?birth .
+            ?birth <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> ?timespan .
+            ?timespan <http://www.cidoc-crm.org/cidoc-crm/P82a_begin_of_the_begin> ?begin .
             FILTER(?begin <= ?__dateEndValue__) .
             FILTER(?begin >= ?__dateBeginValue__) .
            }
@@ -31,9 +31,9 @@
          "kind": "date-range",
          "queryPattern": "
          {
-           $subject <http://erlangen-crm.org/170309/P100i_died_in> ?death .
-           ?death <http://erlangen-crm.org/170309/P4_has_time-span> ?timespan .
-           ?timespan <http://cidoccrm-mccq.gouv.qc.ca/P82a_begin_of_the_begin> ?begin .
+           $subject <http://www.cidoc-crm.org/cidoc-crm/P100i_died_in> ?death .
+           ?death <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> ?timespan .
+           ?timespan <http://www.cidoc-crm.org/cidoc-crm/P82a_begin_of_the_begin> ?begin .
            FILTER(?begin <= ?__dateEndValue__) .
            FILTER(?begin >= ?__dateBeginValue__) .
         }
@@ -42,7 +42,7 @@
      ]
      }' search-profile='{
       "categories": [{
-                       "iri": "<http://erlangen-crm.org/170309/E39_Actor>",
+                       "iri": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>",
                        "label": "Actor",
                        "thumbnail": "../images/fcs/actors.svg"
                      },
@@ -52,17 +52,17 @@
                        "thumbnail": "../images/fcs/dates.svg"
                      },
                      {
-                      "iri": "<http://erlangen-crm.org/170309/E53_Place>",
+                      "iri": "<http://www.cidoc-crm.org/cidoc-crm/E53_Place>",
                       "label": "Place",
                       "thumbnail": "../images/fcs/places.svg"
                      },
                      {
-                      "iri": "<http://erlangen-crm.org/170309/E5_Event>",
+                      "iri": "<http://www.cidoc-crm.org/cidoc-crm/E5_Event>",
                       "label": "Event",
                       "thumbnail": "../images/fcs/events.svg"
                      },
                      {
-                      "iri": "<http://erlangen-crm.org/170309/E70_Thing>",
+                      "iri": "<http://www.cidoc-crm.org/cidoc-crm/E70_Thing>",
                       "label": "Thing",
                       "thumbnail": "../images/fcs/things.svg"
                      }
@@ -70,68 +70,68 @@
       "relations": [{
                       "iri": "<http://www.hercules.gouv.qc.ca/ontology/birth>",
                       "label": "born in",
-                      "hasDomain": "<http://erlangen-crm.org/170309/E39_Actor>",
+                      "hasDomain": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>",
                       "hasRange": "<http://www.w3.org/2001/XMLSchema#date>"
                     },
                     {
                       "iri": "<http://www.hercules.gouv.qc.ca/ontology/death>",
                       "label": "died in",
-                      "hasDomain": "<http://erlangen-crm.org/170309/E39_Actor>",
+                      "hasDomain": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>",
                       "hasRange": "<http://www.w3.org/2001/XMLSchema#date>"
                     },
                     {
-                      "iri": "<http://erlangen-crm.org/170309/P107i_is_current_or_former_member_of>",
+                      "iri": "<http://www.cidoc-crm.org/cidoc-crm/P107i_is_current_or_former_member_of>",
                       "label": "member of",
-                      "hasDomain": "<http://erlangen-crm.org/170309/E39_Actor>",
-                      "hasRange": "<http://erlangen-crm.org/170309/E39_Actor>"
+                      "hasDomain": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>",
+                      "hasRange": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>"
                     },
                     {
-                      "iri": "<http://erlangen-crm.org/170309/P109i_is_current_or_former_curator_of>",
+                      "iri": "<http://www.cidoc-crm.org/cidoc-crm/P109i_is_current_or_former_curator_of>",
                       "label": "curator of",
-                      "hasDomain": "<http://erlangen-crm.org/170309/E39_Actor>",
-                      "hasRange": "<http://erlangen-crm.org/170309/E70_Thing>"
+                      "hasDomain": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>",
+                      "hasRange": "<http://www.cidoc-crm.org/cidoc-crm/E70_Thing>"
                     },
                     {
-                      "iri": "<http://erlangen-crm.org/170309/P49i_is_former_or_current_keeper_of>",
+                      "iri": "<http://www.cidoc-crm.org/cidoc-crm/P49i_is_former_or_current_keeper_of>",
                       "label": "keeper of",
-                      "hasDomain": "<http://erlangen-crm.org/170309/E39_Actor>",
-                      "hasRange": "<http://erlangen-crm.org/170309/E70_Thing>"
+                      "hasDomain": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>",
+                      "hasRange": "<http://www.cidoc-crm.org/cidoc-crm/E70_Thing>"
                     },
                     {
-                      "iri": "<http://erlangen-crm.org/170309/P51i_is_former_or_current_owner_of>",
+                      "iri": "<http://www.cidoc-crm.org/cidoc-crm/P51i_is_former_or_current_owner_of>",
                       "label": "owner of",
-                      "hasDomain": "<http://erlangen-crm.org/170309/E39_Actor>",
-                      "hasRange": "<http://erlangen-crm.org/170309/E70_Thing>"
+                      "hasDomain": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>",
+                      "hasRange": "<http://www.cidoc-crm.org/cidoc-crm/E70_Thing>"
                     },
                     {
-                      "iri": "<http://erlangen-crm.org/170309/P11i_participated_in>",
+                      "iri": "<http://www.cidoc-crm.org/cidoc-crm/P11i_participated_in>",
                       "label": "participated in",
-                      "hasDomain": "<http://erlangen-crm.org/170309/E39_Actor>",
-                      "hasRange": "<http://erlangen-crm.org/170309/E5_Event>"
+                      "hasDomain": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>",
+                      "hasRange": "<http://www.cidoc-crm.org/cidoc-crm/E5_Event>"
                     },
                     {
-                      "iri": "<http://erlangen-crm.org/170309/P74_has_current_or_former_residence>",
+                      "iri": "<http://www.cidoc-crm.org/cidoc-crm/P74_has_current_or_former_residence>",
                       "label": "has residence",
-                      "hasDomain": "<http://erlangen-crm.org/170309/E39_Actor>",
-                      "hasRange": "<http://erlangen-crm.org/170309/E53_Place>"
+                      "hasDomain": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>",
+                      "hasRange": "<http://www.cidoc-crm.org/cidoc-crm/E53_Place>"
                     },
                     {
-                      "iri": "<http://erlangen-crm.org/170309/P107_has_current_or_former_member>",
+                      "iri": "<http://www.cidoc-crm.org/cidoc-crm/P107_has_current_or_former_member>",
                       "label": "has member",
-                      "hasDomain": "<http://erlangen-crm.org/170309/E39_Actor>",
-                      "hasRange": "<http://erlangen-crm.org/170309/E39_Actor>"
+                      "hasDomain": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>",
+                      "hasRange": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>"
                     },
                     {
-                      "iri": "<http://erlangen-crm.org/170309/P74i_is_current_or_former_residence_of>",
+                      "iri": "<http://www.cidoc-crm.org/cidoc-crm/P74i_is_current_or_former_residence_of>",
                       "label": "residence of",
-                      "hasDomain": "<http://erlangen-crm.org/170309/E53_Place>",
-                      "hasRange": "<http://erlangen-crm.org/170309/E39_Actor>"
+                      "hasDomain": "<http://www.cidoc-crm.org/cidoc-crm/E53_Place>",
+                      "hasRange": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>"
                     },
                     {
-                      "iri": "<http://erlangen-crm.org/170309/P11_had_participant>",
+                      "iri": "<http://www.cidoc-crm.org/cidoc-crm/P11_had_participant>",
                       "label": "had participant",
-                      "hasDomain": "<http://erlangen-crm.org/170309/E5_Event>",
-                      "hasRange": "<http://erlangen-crm.org/170309/E39_Actor>"
+                      "hasDomain": "<http://www.cidoc-crm.org/cidoc-crm/E5_Event>",
+                      "hasRange": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>"
                     }
                    ]
     }'>
