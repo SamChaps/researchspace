@@ -22,9 +22,10 @@ Hercules est une application propulsée par le système de connaissances context
 
 # Table des matières
 
-   * [Déploiement](#deploiement)
+   * [Déploiement](#déploiement)
       * [Configuration](#configuration)
-   * [Fonctionnalités](#fonctionnalite)
+   * [Fonctionnalités](#fonctionnalités)
+   * [Développement](#développement)
 
 # Déploiement
 
