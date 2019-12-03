@@ -10,11 +10,13 @@
   </bs-navbar-header>
   <bs-navbar-collapse>
     <bs-nav data-pull-right="true">
-      <bs-nav-dropdown title="{{i18n "demo" locale="fr"}}" id="bg-nested-dropdown">
-        <li>
-          <semantic-link uri="http://www.hercules.gouv.qc.ca/resource/Form">{{i18n "manMadeObjectDemo" locale="fr"}}</semantic-link>
-        </li>
-      </bs-nav-dropdown>
+      <mp-anonymous-hidden>
+        <bs-nav-dropdown title="{{i18n "demo" locale="fr"}}" id="bg-nested-dropdown">
+          <li>
+            <semantic-link uri="http://www.hercules.gouv.qc.ca/resource/Form">{{i18n "manMadeObjectDemo" locale="fr"}}</semantic-link>
+          </li>
+        </bs-nav-dropdown>
+      </mp-anonymous-hidden>
 
       <mp-anonymous-hidden style="float:left;">
         <li>
