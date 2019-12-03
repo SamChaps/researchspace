@@ -1,6 +1,6 @@
 <div style="height: 90vh">
   <ontodia settings="nostats" authoring-mode="true">
-    <semantic-form new-subject-template='http://www.hercules.gouv.qc.ca/instances/entity/{{UUID}}' fields='[[fieldDefinitions]]'>
+    <semantic-form new-subject-template='http://www.hercules.gouv.qc.ca/instances/entities/{{UUID}}' fields='[[fieldDefinitions]]'>
       <ontodia-entity-metadata
         entity-type-iri='http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity'
         label-iri='http://www.hercules.gouv.qc.ca/instances/fields/Label'
@@ -11,7 +11,7 @@
       <button name="submit" class="btn btn-default">[[i18n "create" locale=(urlParam "preferredLanguage")]]</button>
       <button name="reset" class="btn btn-default">[[i18n "reset" locale=(urlParam "preferredLanguage")]]</button>
     </semantic-form>
-    <semantic-form new-subject-template='http://www.hercules.gouv.qc.ca/instances/entity/{{UUID}}' fields='[[fieldDefinitions]]'>
+    <semantic-form new-subject-template='http://www.hercules.gouv.qc.ca/instances/entities/{{UUID}}' fields='[[fieldDefinitions]]'>
       <ontodia-entity-metadata
         entity-type-iri='http://www.cidoc-crm.org/cidoc-crm/E18_Physical_Thing'
         label-iri='http://www.hercules.gouv.qc.ca/instances/fields/Label'
