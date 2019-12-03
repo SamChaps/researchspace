@@ -18,14 +18,14 @@ Hercules est une plateforme consistant à faire évoluer le site Web actuel du R
 
 Hercules est développé dans le but d'offrir une plateforme collaborative aux intervenants du secteur afin de colliger, de mettre à jour et de diffuser les données sur le patrimoine culturel québécois au grand public. Hercules contient aussi un volet expérimental, [hercules-extraction](https://github.com/vincentlabonte/hercules-extraction),proposant un outil d’identification et de désambiguïsation des entités nommées présentes dans un texte.
 
-Hercules est une application propulsée par le système de connaissances contextualisées [Researchspace](https://github.com/researchspace/researchspace). 
+Hercules est une application propulsée par le système de connaissances contextualisées [Researchspace](https://github.com/researchspace/researchspace). Des informations sur ce système sont disponibles à l'adresse https://www.researchspace.org/. Ce système est à son tour propulsé par une version libre de la plateforme [Metaphactory](https://www.metaphacts.com/product). Une documentation des fonctionnalités de la version la plus récente de [Metaphactory](https://www.metaphacts.com/product) se trouve à l'adresse https://wikidata.metaphacts.com/resource/Help:Start.
 
 # Table des matières
 
    * [Déploiement](#déploiement)
       * [Configuration](#configuration)
-   * [Fonctionnalités](#fonctionnalités)
-   * [Développement](#développement)
+   * [Documentation usager](#Documentation-usager)
+   * [Documentation développeur](#Documentation-développeur)
 
 # Déploiement
 
@@ -42,16 +42,14 @@ La plateforme exigera la configuration de l'entrepôt de données par défaut. L
 ![Configuration de l'entrepôt de données par défaut](https://github.com/SamChaps/researchspace/wiki/images/hercules_entrepot_donnees_configuration.jpg)
 Pour ce faire, il est essentiel d'avoir les permissions requises à la modification de la configuration des entrepôts de données. Le nom d'utilisateur `admin` et le mot de passe `admin` peuvent être utilisés afin d'accéder au compte administrateur qui a les permissions nécessaires. Ensuite, la configuration proposée dans la [documentation](https://github.com/SamChaps/researchspace/wiki/Entrep%C3%B4ts-de-donn%C3%A9es#entrep%C3%B4t-par-d%C3%A9faut) peut être utilisée pour initialiser l'entrepôt de données par défaut.
 
+# Documentation usager
 ### Importation des ontologies
 Deux ontologies sont fournies avec le projet, soit [l'ontologie de la CIDOC CRM](researchspace/ontologies/cidoccrm_v6.2.1.ttl) et une [ontologie de métadonnées](researchspace/ontologies/hercules_meta.owl) nécessaire à quelques fonctionnalités de la plateformes. La [documentation usager](https://github.com/SamChaps/researchspace/wiki/Gestion-des-donn%C3%A9es#importation) indique comment importer des données à la plateforme. Le même processus peut être suivi afin d'importer ces deux ontologies.
 
+Disponible à la section [Documentation usager](https://github.com/SamChaps/researchspace/wiki/Documentation-usager) du [wiki](https://github.com/SamChaps/researchspace/wiki). 
 ### Importation des modèles de connaissances
 Deux modèles de connaissances sont nécessaires au bon fonctionnement de l'[outil de création de formulaires](https://github.com/SamChaps/researchspace/wiki/Cr%C3%A9ation-de-formulaires#outil-de-cr%C3%A9ation-de-formulaires). Ces derniers se trouvent dans le fichier [label_type_fields.trig](researchspace/external-data/label_type_fields.trig).  La [documentation usager](https://github.com/SamChaps/researchspace/wiki/Mod%C3%A8les-de-connaissances#importationexportation-de-mod%C3%A8les-de-connaissances) indique comment importer des modèles de connaissances à la plateforme.
 
-# Fonctionnalités
+# Documentation développeur
 
-La [documentation usager](https://github.com/SamChaps/researchspace/wiki/Documentation-usager) détaille les fonctionnalités principales de la plateforme.
-
-# Développement
-
-La [documentation développeur](https://github.com/SamChaps/researchspace/wiki/Documentation-d%C3%A9veloppeur) détaille différentes informations utiles au développement de la plateforme.
+Disponible à la section [Documentation développeur](https://github.com/SamChaps/researchspace/wiki/Documentation-d%C3%A9veloppeur) du [wiki](https://github.com/SamChaps/researchspace/wiki). 
